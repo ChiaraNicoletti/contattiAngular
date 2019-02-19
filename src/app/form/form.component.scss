@@ -1,0 +1,22 @@
+label, input {
+display: inline-block;
+width: 200px;
+margin: 5px;
+font-weight: bold;
+}
+label {
+color: #777;
+font-size: 14px;
+}
+form {
+width: 300px;
+margin: 0 auto; /* centra l'intero form nella pagina */
+padding: 10px 0;
+border: 3px double #99a;
+background-color: 	#7FFFD4;
+}
+div {
+  color: red;
+  font-size: 14px;
+
+}

@@ -1,30 +1,59 @@
-<h2>Compila il form</h2>
-<form [formGroup]="myForm">
-  <div>
-  <mat-form-field>
-    <input matInput placeholder="nome" formControlName="Nome">
-  </mat-form-field>
-  </div>
-  <div>
-  <mat-form-field>
-    <input matInput placeholder="Cognome" formControlName="Cognome">
-  </mat-form-field>
-  </div>
-  <div>
-  <mat-form-field>
-    <input matInput placeholder="citta" formControlName="citta">
-  </mat-form-field>
-  </div>
-  <div>
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-  </div>
-</form>
 
-<h2>Risultato in tempo reale:</h2>
-<p>Nome inserito:{{this.myForm.value.Nome}}</p>
-<p>Cognome inserito:{{this.myForm.value.Cognome}}</p>
-<p>citta inserita:{{this.myForm.value.citta}}</p>
+<form [formGroup]="mioForm">
+
+    <label>Name</label>
+    <input id="name"class="form-control" formControlName="name"required>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+   class="alert alert-danger">
+  <div *ngIf="name.errors.required">
+    Name is required.
+  </div>
+  <div *ngIf="name.errors.minlength">
+    Name must be at least 2 characters long.
+  </div>
+  </div>
+<br>
+
+    <label>Cognome</label>
+    <input id="cognome"class="form-control"formControlName="cognome"required>
+    <div *ngIf="cognome.invalid && (cognome.dirty || cognome.touched)"
+   class="alert alert-danger">
+    <div *ngIf="cognome.errors.required">
+      Cognome is required.
+    </div>
+    <div *ngIf="cognome.errors.minlength">
+      Cognome must be at least 2 characters long.
+    </div>
+  </div>
+<br>
+
+    <label>Città</label>
+    <input id="citta"class="form-control" formControlName="citta"required>
+    <div *ngIf="citta.invalid && (citta.dirty || citta.touched)"
+   class="alert alert-danger">
+    <div *ngIf="citta.errors.required">
+      Città is required.
+    </div>
+    <div *ngIf="citta.errors.minlength">
+      Città must be at least 2 characters long.
+    </div>
+  </div>
+<br>
+    <label>Email</label>
+    <input id="email"  class="form-control" formControlName="email" required >
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+   <div *ngIf="email.errors.required">
+     Email is required.
+   </div>
+   <div *ngIf="email.errors.email">
+     Email must respect a pattern; it should contain a domain and a valid name address.
+   </div>
+</div>
+<br>
+  <label>data di nascita</label>
+<input id= "data" matInput [matDatepicker]="picker"type="date">
+
+<br>
+  <button type="submit" class="btn btn-primary" (click)="print();" [disabled]="mioForm.invalid"> Send</button>
+</form>
