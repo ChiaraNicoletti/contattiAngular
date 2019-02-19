@@ -1,0 +1,30 @@
+<h2>Compila il form</h2>
+<form [formGroup]="myForm">
+  <div>
+  <mat-form-field>
+    <input matInput placeholder="nome" formControlName="Nome">
+  </mat-form-field>
+  </div>
+  <div>
+  <mat-form-field>
+    <input matInput placeholder="Cognome" formControlName="Cognome">
+  </mat-form-field>
+  </div>
+  <div>
+  <mat-form-field>
+    <input matInput placeholder="citta" formControlName="citta">
+  </mat-form-field>
+  </div>
+  <div>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  </div>
+</form>
+
+<h2>Risultato in tempo reale:</h2>
+<p>Nome inserito:{{this.myForm.value.Nome}}</p>
+<p>Cognome inserito:{{this.myForm.value.Cognome}}</p>
+<p>citta inserita:{{this.myForm.value.citta}}</p>
